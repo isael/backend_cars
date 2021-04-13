@@ -3,8 +3,8 @@ import Car from '../models/Car';
 
 interface CarPatchI{
     id: number
-    fecha: Date
-    persona: string
+    estimatedate: Date
+    person: string
 }
 
 class Routes{
@@ -16,18 +16,18 @@ class Routes{
 
     async getAllCars(req: Request, res: Response){
         const cars = await Car.find();
-        console.log(cars);
         res.send(cars);
     }
 
     async updateCarById(req: Request, res: Response){
         const body: CarPatchI = req.body;
-        const { id, fecha, persona } = body;
-        console.log(typeof fecha);
-        const resp = await Car.findOneAndUpdate({id}, {
-            estimatedate: undefined,
-            person: undefined
-        });
+        const { id, estimatedate, person } = body;
+        const resp = await Car.findOneAndUpdate({"_id":id}, {
+            estimatedate: estimatedate,
+            person: person,
+        },
+        {returnOriginal: false}
+        );
         res.send(resp);
     }
 

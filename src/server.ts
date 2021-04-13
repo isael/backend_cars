@@ -14,7 +14,7 @@ class Server {
 
     config(){
         this.app.use(express.json());
-        this.app.set('port', process.env.PORT || 80);
+        this.app.set('port', process.env.PORT || 3000);
         this.app.use(cors());
     }
 
@@ -24,7 +24,7 @@ class Server {
 
     start(){
         this.app.listen(this.app.get('port'), ()=>{
-            console.log('Server on 80');
+            console.log('Server on 3000');
         });
     }
 }

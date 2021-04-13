@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 class Database{
     uri: string;
     constructor(){
-        this.uri = 'mongodb://localhost/car_management';
+        this.uri = 'mongodb+srv://user-test:password-test@cluster0.5bwhu.mongodb.net/car_management?retryWrites=true&w=majority';
     }
 
     connect(){
